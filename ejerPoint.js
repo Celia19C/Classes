@@ -5,20 +5,29 @@
 
 //Coordenadas. Conseguir otro punto nuevo con unas coordenadas dadas al invocar la clase.
 
+
+// // Your code here
+
+// console.log(new Point(1, 2).plus(new Point(2, 1)))
+// // → Point{x: 3, y: 3}
+
+
+///SOLUCIÖN
+
 class Point {
     constructor(x, y){
-      this.x = x;
-      this.y = y;
-    }
-    plus(otroPunto){
-      var otroPuntoX = this.x + otroPunto.x;
-      var otroPuntoY = this.y + otroPunto.y;
-      var point = new Point(otroPuntoX, otroPuntoY);
-  
-      return point
-    }
-  
+        this.x = x;
+    this.y = y;
   }
+
+    plus(otherPoint) {
+        var otherPointX = this.x + otherPoint.x;      	
+        var otherPointY = this.y + otherPoint.y;
+        var point = new Point(otherPointX, otherPointY)
+    
+    return point
+  }
+}
   
   console.log(new Point(1, 2).plus(new Point(2, 1)))
   // → Point{x: 3, y: 3}
