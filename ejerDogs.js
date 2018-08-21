@@ -44,14 +44,15 @@ class Dog {
   }
   
   class Labrador extends Dog {
-    constructor(name, age, gender,legs, species, size, master, loyal) {
-      super(name, age, gender, legs, master)
-      this.species = "Labrador";
-      this.size = "Large";
-      this.loyal = true;
+    constructor(name, age, gender, master) {
+      super(name, age, gender, master)
+        this.species = "Labrador";
+        this.size = "Large";
+        this.loyal = true;
+        this.master = master;
     }
   }
-  
+
 //   console.log(new Dog("Tobi", 32, "hembra", "caniche", "grande", "pedigrí", false))
   
 //   console.log(new Labrador("Tobi", 32, "hembra", "caniche", "grande", "pedigrí", false))
