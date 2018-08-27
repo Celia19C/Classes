@@ -15,26 +15,27 @@
 ///SOLUCIÖN
 
 class Point {
-    constructor(x, y){
+    constructor(x, y) {
         this.x = x;
-    this.y = y;
-  }
+        this.y = y;
+    }
 
     plus(otherPoint) {
-        var otherPointX = this.x + otherPoint.x;      	
+        var otherPointX = this.x + otherPoint.x;
         var otherPointY = this.y + otherPoint.y;
         var point = new Point(otherPointX, otherPointY)
-    
-    return point
-  }
+
+        return point
+    }
 }
-  
-  console.log(new Point(1, 2).plus(new Point(2, 1)))
-  // → Point{x: 3, y: 3}
+
+console.log(new Point(1, 2).plus(new Point(2, 1)))
+// → Point{x: 3, y: 3}
 
 
 
 //Añadir una tercera coordenada, z, heredando las de la clase padre las otrasa dos coordenadas.
+
 
 class Point3D extends Point {
     constructor(x, y, z) {
@@ -43,9 +44,48 @@ class Point3D extends Point {
     }
     plus(otherPoint) {
         var point = super.plus(new Point(otherPoint.x, otherPoint.y))
-        var otherPointZ = this.z + otherPoint.z;      	
+        var otherPointZ = this.z + otherPoint.z;
         return new Point3D(point.x, point.y, otherPointZ)
-    
+
+    }
+
+}
+
+console.log(new Point3D(5, 6, 5))
+const pA = new Point3D(1, 2, 8)
+const pB = new Point3D(2, 1, 56)
+const pC = pA.plus(pB)
+console.log(pC)
+
+//.............................................................................................
+//Refactorizado con super y el método
+
+class Point {
+    constructor(x, y) {
+        this.x = x;
+        this.y = y;
+
+    }
+
+    plus(otherPoint) {
+        var otherPointX = this.x + otherPoint.x;
+        var otherPointY = this.y + otherPoint.y;
+        var point = new Point(otherPointX, otherPointY)
+
+        return point
+    }
+}
+
+class Point3D extends Point {
+    constructor(x, y, z) {
+        super(x, y)
+        this.z = z
+    }
+    plus(otherPoint) {
+        var point = super.plus(new Point(otherPoint.x, otherPoint.y))
+        var otherPointZ = this.z + otherPoint.z;
+        return new Point3D(point.x, point.y, otherPointZ)
+
     }
 
 }
